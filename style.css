@@ -1,0 +1,80 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Poppins', sans-serif;
+  height:100vh; overflow:hidden;
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  color:#eee; position:relative;
+}
+
+.overlay {
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.container {
+  position:relative; z-index:1;
+  text-align:center; padding:5% 20px;
+}
+
+.title {
+  font-size:3rem; font-weight:700;
+  animation: fadeScale 2s ease-out;
+}
+
+@keyframes fadeScale {
+  from { opacity:0; transform: scale(0.8); }
+  to { opacity:1; transform: scale(1); }
+}
+
+.photo-frame {
+  margin:20px auto; width:260px; height:260px;
+  border:6px solid rgba(255,255,255,0.2); border-radius:50%;
+  box-shadow: 0 0 30px rgba(0,255,255,0.4);
+  overflow:hidden; animation: float 4s ease-in-out infinite;
+}
+
+.friend-img {
+  width:100%; height:100%; object-fit:cover;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.message {
+  margin:20px auto; max-width:500px;
+  font-size:1.2rem; line-height:1.5;
+  opacity:0; animation: fadeIn 3s ease forwards;
+  animation-delay:0.5s;
+}
+
+@keyframes fadeIn {
+  to { opacity:1; }
+}
+
+.qr-section {
+  margin-top:30px; display:flex; justify-content:center;
+}
+
+.qr-card {
+  background: rgba(255,255,255,0.1);
+  padding:15px; border-radius:12px;
+  backdrop-filter: blur(5px);
+  box-shadow:0 0 20px rgba(0,255,255,0.3);
+  animation: popIn 1s ease-out;
+}
+
+@keyframes popIn {
+  from { opacity:0; transform: scale(0.7); }
+  to { opacity:1; transform: scale(1); }
+}
+
+.qr-card p {
+  margin-top:10px; font-size:1rem;
+}
+
+canvas#confetti, canvas#bg-animation {
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  pointer-events:none;
+}
